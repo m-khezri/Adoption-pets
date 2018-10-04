@@ -1,9 +1,7 @@
+import {getPets} from './data/petData.js'
 
+const initializeApp = () => {
+    getPets();
+}
 
-const appIntilizer = () => {
-
-console.log(2+2);
-
-};
-
-appIntilizer();
+initializeApp();
