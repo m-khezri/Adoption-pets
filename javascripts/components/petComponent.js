@@ -1,38 +1,41 @@
-const printToDom = (stringToPrint) => {
-    const printHere = document.getElementById('petsCard');
-    printHere.innerHTML = stringToPrint;
-  }
-  
-  let pets = [];
+import {printToDom} from '../helpers/util.js';
 
-  const arrangePets = (newArray) => {
+let pets = [];
+
+const setPets = (newArray) => {
     pets = newArray;
-}
-  
-  const petBuilder = () => {
+};
 
-    let newString = '';
+const getPetz = () => {
+    return pets;
+};
 
-    for (let i = 0; i < pets.length; i++) {
-      
-        newString += `<div class="d-inline-flex justify-content-center card text-center m-4" style="width: 15rem;">`
-        newString +=    `<div class="card-header">`
-        newString +=    `<h5>${pets[i].name}</h5>`
-        newString +=    `</div>`
-        newString +=    `<div class="card-body">`
-        newString +=        `<img class="card-img-top" src="${pets[i].imageUrl}" alt="${pets[i].name}">`
-        newString +=        `<h5 class="card-text mt-1">${pets[i].color}</h5>`
-        newString +=        `<h5 class="card-text">${pets[i].specialSkill}</h5>`
-        newString +=    `</div>`
-        newString +=    `<div class="card-footer text-${pets[i].text}" style="background-color: ${pets[i].background};">`
-        newString +=        `<h5>${pets[i].type}</h5>`
-        newString +=    `</div>`
-        newString += `</div>`      
+const sortPets = (e) => {
+    const type = e.target.id;
+    if(type === 'all'){
+        petsBuilder(pets);
+    } else {
+    const filteredPets = pets.filter(x => x.type === type);
+        petsBuilder(filteredPets);
     }
-    printToDom (newString, 'petsCard');
-  }
+};
 
+const petsBuilder = (petsArray) => {
+    let domString = '';
+    petsArray.forEach((pet) => {
+    domString += `<div class="card pet pet-card border-secondary mb-3 pet" id="iJustNeedSomeSpace" style="max-width: 18rem;">`;
+    domString +=    `<div class="card-header text-center border-secondary" id="petName">${pet.name}</div>`;
+    domString +=    `<div class="card-body text-secondary">`;
+    domString +=        `<div class="container image-container">`;
+    domString +=            `<img class="card-img" id="image" src="${pet.imageUrl}" alt="${pet.name}">`;
+    domString +=        `</div>`;
+    domString +=        `<p class="card-title text-center" id="petWords">${pet.color}</p>`;
+    domString +=        `<p class="card-text text-center" id="petWords">${pet.specialSkill}</p>`;
+    domString +=    `</div>`;
+    domString +=    `<div class="card-footer text-center text-capitalize border-secondary ${pet.type}">${pet.type}</div>`;
+    domString += `</div>`;
+    })
+    printToDom(domString)
+    };
 
-
-
-  export {petBuilder, printToDom, arrangePets}
+export {petsBuilder, setPets, getPetz, sortPets}
