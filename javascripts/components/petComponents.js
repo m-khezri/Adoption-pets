@@ -30,7 +30,11 @@ const sortPets = (e) => {
 const petsBuilder = (petsArray) => {
     let domString = '';
     petsArray.forEach((pet) => {
+<<<<<<< HEAD
     domString += `<div class="card d-inline-flex m-4 pet" id="iJustNeedSomeSpace" style="max-width: 18rem;">`;
+=======
+    domString += `<div class="card pet pet-card border-secondary mb-3 pet" id="iJustNeedSomeSpace" style="max-width: 18rem;">`;
+>>>>>>> 674b71618d52fd1799b6173aaba1db4648f81ae4
     domString +=    `<div class="card-header text-center border-secondary" id="petName">${pet.name}</div>`;
     domString +=    `<div class="card-body text-secondary">`;
     domString +=        `<div class="container image-container">`;
