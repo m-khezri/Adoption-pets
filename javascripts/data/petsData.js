@@ -4,7 +4,7 @@ import {setPets, petsBuilder, getPetz} from '../components/petComponents.js';
 // --------- DID NOT MAKE SENSE YET ------------
 
 function executeThisCodeAfterFileLoaded () {
-    const data = JSON.parse(this.responseText);   // What does "this" do here?
+    const data = JSON.parse(this.responseText);   // "This" refers to getPets() in XHR down this page
     setPets(data.pets);
     petsBuilder(getPetz());
 };

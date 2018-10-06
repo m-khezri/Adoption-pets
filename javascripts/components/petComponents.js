@@ -14,11 +14,11 @@ const getPetz = () => { // Read the data
 };
 
 const sortPets = (e) => {
-    const type = e.target.id;  // what does "e.target.id" mean?
+    const type = e.target.id;  // "e" is an event for each button clicked. 
     if(type === 'all'){
         petsBuilder(pets);
     } else {
-    const filteredPets = pets.filter(x => x.type === type);  // Id dosn't make sense to me!!
+    const filteredPets = pets.filter(x => x.type === type);  // filter is reserved function, x is a place holder 
         petsBuilder(filteredPets);
     }
 };
