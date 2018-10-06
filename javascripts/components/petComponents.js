@@ -34,6 +34,7 @@ const petsBuilder = (petsArray) => {
     domString +=    `</div>`;
     domString +=    `<div class="card-footer text-center text-capitalize border-secondary ${pet.type}">${pet.type}</div>`;
     domString += `</div>`;
+
     })
     printToDom(domString)
     };
