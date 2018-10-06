@@ -1,30 +1,21 @@
-import {petBuilder, arrangePets} from '../components/petComponent.js';
+import {setPets, petsBuilder, getPetz} from '../components/petComponents.js';
 
-// -----------------------------------------------------------------
-
-
-function afterFileLoaded () {
+function executeThisCodeAfterFileLoaded () {
     const data = JSON.parse(this.responseText);
-    arrangePets(data.pets);
-    petBuilder();
-}
+    setPets(data.pets);
+    petsBuilder(getPetz());
+};
 
-
-const loadError = () => {
-    console.log('Error');
-}
-
+function executeThisCodeIfXhrFails () {
+    console.log('meeow');
+};
 
 const getPets = () => {
-
     let myRequest = new XMLHttpRequest();
-    myRequest.addEventListener('load', afterFileLoaded);
-    myRequest.addEventListener('error', loadError);
+    myRequest.addEventListener('load', executeThisCodeAfterFileLoaded);
+    myRequest.addEventListener('error', executeThisCodeIfXhrFails);
     myRequest.open('GET', './db/pets.json');
     myRequest.send();
+};
 
-}
-
-export {getPets};
-
-
+export {getPets}
