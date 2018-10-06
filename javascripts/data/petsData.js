@@ -1,7 +1,10 @@
 import {setPets, petsBuilder, getPetz} from '../components/petComponents.js';
 
+
+// --------- DID NOT MAKE SENSE YET ------------
+
 function executeThisCodeAfterFileLoaded () {
-    const data = JSON.parse(this.responseText);
+    const data = JSON.parse(this.responseText);   // What does "this" do here?
     setPets(data.pets);
     petsBuilder(getPetz());
 };

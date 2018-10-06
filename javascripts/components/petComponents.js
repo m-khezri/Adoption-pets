@@ -1,24 +1,31 @@
 import {printToDom} from '../helpers/util.js';
 
-let pets = [];
 
-const setPets = (newArray) => {
+// -------- DID NOT MAKE SENCE YET --------------
+
+let pets = [];   // hold the JSON data
+
+const setPets = (newArray) => {  // Write the data
     pets = newArray;
 };
 
-const getPetz = () => {
+const getPetz = () => { // Read the data
     return pets;
 };
 
 const sortPets = (e) => {
-    const type = e.target.id;
+    const type = e.target.id;  // what does "e.target.id" mean?
     if(type === 'all'){
         petsBuilder(pets);
     } else {
-    const filteredPets = pets.filter(x => x.type === type);
+    const filteredPets = pets.filter(x => x.type === type);  // Id dosn't make sense to me!!
         petsBuilder(filteredPets);
     }
 };
+
+
+// ---------- DID NOT MAKE SENSE YET ------------------------
+
 
 const petsBuilder = (petsArray) => {
     let domString = '';
